@@ -105,7 +105,7 @@ void printNameWithoutShare()
 		}
 	}
 
-	if (a >= 0, m >=2)
+	if (a >= 0, m >=2) // what ??
 	{
 		for (int i = a + 1; i < m; i++)
 		{
