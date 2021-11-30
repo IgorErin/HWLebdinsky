@@ -9,7 +9,10 @@ int f(char x, char y) {
 }
 
 int max(int x, int y) {
-    
+    if (x == y)
+    {
+        return 0;
+    }
     if (x % 2 == 1 && y % 2 == 0) {
         return 1;
     }
@@ -50,7 +53,7 @@ void fun(int *m,int n, int (*x)(int, int) )
              printf("%d v %d \n", m[j], m[j + 1]);
 
 
-            if ((*x)(m[j], m[j + 1]) > 0) {
+            if ((*x)(m[j], m[j + 1]) >= 0) {
                 printf("%d -> %d\n", m[j], m[j + 1]);
 
                 int c = m[j];
