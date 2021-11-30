@@ -1,7 +1,7 @@
 #include<math.h>
 #include <time.h>
 
-int fun(int **x, int *y, int left, int right, int m, int ind) {
+int fun(int **x, int *y, int left, int right, int m, int ind) { // binsearch
 	if (ind == m - 1)
 	{
 		return left;
