@@ -20,7 +20,7 @@ int main()
 		{
 			flag = 1;
 		}
-		if (!isdigit(s[i]) && flag)
+		if (!isdigit(s[i]) && flag) // do this more simple
 		{
 			flag = 0;
 			count++;
