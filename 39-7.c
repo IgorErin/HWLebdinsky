@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS //39.7
+#define _CRT_SECURE_NO_WARNINGS //39.7 // accepted
 
 #include<stdio.h>
 #include<math.h>
