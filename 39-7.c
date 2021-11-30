@@ -40,5 +40,5 @@ int search(int x[], int n, int m, int l) {
 
 int main() {
 	int x[23] = { 1,2,3,3,3,3,4,4,4,5,5,5,5,6,6,6,8,8,8,9,10,10,10 };
-	printf("%d", search(x, 0, 22, 9));
+	printf("%d", search(x, 0, 22, 9));;
 }
