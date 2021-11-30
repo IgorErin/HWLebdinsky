@@ -9,6 +9,7 @@ int f(char x, char y) {
 }
 
 int max(int x, int y) {
+    
     if (x % 2 == 1 && y % 2 == 0) {
         return 1;
     }
@@ -32,10 +33,6 @@ int max(int x, int y) {
             return -1;
 
         }
-    }
-
-    else {
-        return 0;
     }
 }
 
