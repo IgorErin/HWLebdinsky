@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS //heapsort
+#define _CRT_SECURE_NO_WARNINGS //heapsort // use exist function
 
 #include<stdio.h>
 #include<math.h>
