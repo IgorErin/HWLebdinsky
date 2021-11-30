@@ -15,10 +15,10 @@ int interpolationSearch(int array[], int size, int n)
         if (array[low] == array[high])
             break;
 
-        mid = low + (n - array[low]) * (high - low) / (array[low] - array[high]);
+        mid = low + (n - array[low]) * (high - low) / (array[low] - array[high]);// границы проверка
         if (n < array[mid])
             high = mid - 1;
-        else if (n > array[mid])
+        else if (n > array[mid])// не работает.
             low = mid + 1;
         else
             return mid;
