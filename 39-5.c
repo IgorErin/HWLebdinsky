@@ -6,7 +6,7 @@
 
 
 
-int fun(int **x, int n, int l, int per)
+int fun(int **x, int n, int l, int per) // parametry
 {
 	for (int i = 0; i < per;i++) 
   {
@@ -32,7 +32,7 @@ int search(int **x, int n, int m, int l)
 
 	int mid = (n + m) / 2;
 
-	if (x[mid / 3][mid % 3] == l) 
+	if (x[mid / 3][mid % 3] == l) // parametry
 	{
 
 		return mid;
