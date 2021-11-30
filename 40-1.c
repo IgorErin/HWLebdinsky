@@ -196,7 +196,7 @@ void printsWithoutName()
 	int a = -1;
 	for (int i = 0; i < 500; i++)
 	{
-		if (s[i] == 92 ) 
+		if (s[i] == '\\' ) 
 		{
 			a = i;
 			
