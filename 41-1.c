@@ -46,13 +46,14 @@ void fillIn(struct avto* x, int n)
 void traid(struct avto* x, int n)
 {
 	int a;
+	scanf("enter number %d\n", &a);
 	if (a >= n)
 	{
 		printf("Error");
 	}
 	else
 	{
-		x[a].Bool = false;
+		x[a - 1].Bool = false;
 	}
 }
 
