@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS //interpolycia
+#define _CRT_SECURE_NO_WARNINGS //interpolycia/
 #include<stdio.h>
 #include<math.h>
 #include<time.h>
