@@ -100,14 +100,14 @@ int main() {
 		clock_t t0 = clock();
 		
 		
-		searchLine(x, 10000, x[rand() % 10000]);
+		searchLine(x, 10000, x[rand() % 30000]);
 		
 		clock_t t1 = clock() - t0;
 		sum1 += (double)t1 / CLOCKS_PER_SEC;
 
 	}
 
-	sum1 = sum1 / 30000;
+	sum1 = sum1 / 10000;
 
 	qsort(x, 30000, sizeof(int), compare);
 
@@ -116,26 +116,26 @@ int main() {
 		clock_t t0 = clock();
 		
 		
-		search(x, 0, 9999, x[rand() % 10000]);
+		search(x, 0, 9999, x[rand() % 30000]);
 		
 		clock_t t1 = clock() - t0;
 		sum2 += (double)t1 / CLOCKS_PER_SEC;
 
 	}
-	sum2 = sum2 / 30000;
+	sum2 = sum2 / 10000;
 
 	for (int i = 0; i < 10000; i++)
 	{
 		clock_t t0 = clock();
 
 
-		interpolationSearch(x, 0, 9999, x[rand() % 10000]);
+		interpolationSearch(x, 0, 9999, x[rand() % 30000]);
 
 		clock_t t1 = clock() - t0;
 		sum3 += (double)t1 / CLOCKS_PER_SEC;
 
 	}
-	sum3 = sum3 / 30000;
+	sum3 = sum3 / 10000;
 
 	printf("%f, %f, %f", sum1, sum2, sum3);
 }
