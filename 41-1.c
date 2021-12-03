@@ -32,13 +32,13 @@ void fillIn(struct avto* x, int n)
 		if (x[i].Bool)
 		{
 			printf("Enter the price");
-			scanf("%f", x[i].price);
+			scanf("%f", &x[i].price);
 			printf("Enter the color");
-			scanf("%c", x[i].color);
+			scanf("%c", &x[i].color);
 			printf("Enter the quantity");
-			scanf("%d", x[i].quantity);
+			scanf("%d", &x[i].quantity);
 			printf("Enter the quantityHorseForces");
-			scanf("%d", x[i].quantityHorseForces);
+			scanf("%d", &x[i].quantityHorseForces);
 		}
 	}
 }
