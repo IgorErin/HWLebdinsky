@@ -5,41 +5,42 @@
 
 #define SIZE 500
 
-void save(int* arr, char* name)
+void save(float* arr, char* name)
 {
     FILE* f;
-    f = fopen(name, "w+");
+    f = fopen(name, "wb+");
     for (int i = 0; i < 15; i++)
     {
-        fprintf(f, "%d ", arr[i]);
+        fwrite(&arr[i], sizeof(float), 1, f);
     }
     fclose(f);
 }
 
-void load(int* arr, char* name)
+void load(float* arr, char* name)
 {
     FILE* f;
-    f = fopen(name, "r+");
+    f = fopen(name, "rb+");
     for (int i = 0; i < 15; i++)
     {
-        fscanf(f, "%d", &arr[i]);
+        fread(&arr[i], sizeof(float), 1, f);
     }
     fclose(f);
 }
 
+// C:\\Users\\Igor\\Desktop\\data.dat
 
 int main()
 {
     
     char name[500] = { 0 };
-    int x[15] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+    float x[15] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
     scanf("%s", &name);
     save(x, name);
-    int y[15];
+    float y[15];
     load(y, name);
 
     for (int i = 0; i < 15; i++)
     {
-        printf("%d ", y[i]);
+        printf("%f ", y[i]);
     }
 }
