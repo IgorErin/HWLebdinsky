@@ -20,9 +20,9 @@ int main()
     FILE* in, * out;
     char ch;
 
-    in = fopen(s, "r");
-    out = fopen(s1, "w+");
-    int i;
+    in = fopen(s, "rb");
+    out = fopen(s1, "wb+");
+    
 
     while (!feof(in))
     {
