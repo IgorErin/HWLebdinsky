@@ -2,10 +2,11 @@
 #include<stdio.h>
 #include<math.h>
 #include<time.h>
+#include<stdlib.h>
+
 
 
 #define SIZ 500
-
 
 // C:\\Users\\Igor\\Desktop\\t.txt
 int main()
@@ -19,19 +20,28 @@ int main()
     FILE* in, * out;
     char ch;
 
-    in = fopen(s, "r");
-    out = fopen(s1, "r+");
-
+    in = fopen(s, "rb+");
+    out = fopen(s1, "rb+");
+    
     while (!feof(out))
     {
-        getc(out);
+        fscanf(out, "%c", &ch);
     }
-    while (!feof(in))
+
+
+    while (1)
     {
-        ch = getc(in);
-        putc(ch, out);
+        
+        fread(&ch, sizeof(char), 1, in);
+        if (feof(in))
+        {
+            break;
+        }
+        printf("%c", ch);
+        fwrite(&ch, sizeof(char), 1, out);
     }
 
     fclose(in);
     fclose(out);
+
 }
