@@ -1,69 +1,27 @@
-#define _CRT_SECURE_NO_WARNINGS //heapsort // use exist function
-
+#define _CRT_SECURE_NO_WARNINGS 
 #include<stdio.h>
 #include<math.h>
 #include <time.h>
 
 #define SIZE 500
 
-int main() 
+int main()
 {
-	char s[500] = { 0 };
-	char ps[500] = { 0 };
+	char main_str[500] = { 0 };
+	char sub_str[500] = "abs";
 
-	scanf("%s", &s);
-	scanf("%s", &ps);
+	scanf("%s", &main_str);
+	scanf("%s", &sub_str);
+	
+	int sub_str_count = 0;	
 
-	int lens, lenps;
+	char* tmp = main_str;	
 
-	for (int i = 0; i < 500; i++) 
+	
+	while ((tmp = strstr(tmp, sub_str)) != NULL)
 	{
-		if ((int)s[i] == 0)
-		{
-			lens = i;
-			break;
-		}
-
+		tmp++;
+		sub_str_count++;
 	}
-
-	for (int i = 0; i < 500; i++)
-	{
-		if ((int)ps[i] == 0) 
-		{
-			lenps = i;
-			break;
-		}
-
-	}
-
-	int ind = 0;
-	int count = 0;
-
-	for (int i = 0; i < lens; i++) {
-		//printf("%c - %c, %d\n", s[i], ps[ind], ind);
-		if (s[i] == ps[0])
-		{
-			for (int j = 0; j < lenps; j++)
-			{
-				if (s[i + j] == ps[j])
-				{
-					ind++;
-				}
-				else {
-					break;
-				}
-				//printf("%d", ind);
-				
-			}
-
-			if (ind == lenps)
-			{
-				count++;
-			}
-			ind = 0;	
-		}
-	}
-
-	printf("%d", count);
-
+	printf("%d", sub_str_count);
 }
