@@ -1,3 +1,4 @@
+#define ADDLAST(TYPE) \
 void addLAst_##TYPE(struct Node_##TYPE* f, TYPE input) \
 { \
     struct Node_##TYPE* p = f; \
