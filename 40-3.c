@@ -24,6 +24,7 @@ int main()
                 if (as[i] == bs[j])
                 {
                     as[i] = cs[j];
+                    break;
                 }
             }
         }
