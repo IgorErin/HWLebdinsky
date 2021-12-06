@@ -1,9 +1,15 @@
-#define _CRT_SECURE_NO_WARNINGS //interpolycia
+#define _CRT_SECURE_NO_WARNINGS 
 #include<stdio.h>
 #include<math.h>
-#include<time.h>
-#include<stdlib.h>
+#include <time.h>
 
+#define SIZE 500
+
+struct node 
+{
+    int d;
+    struct node* n;
+};
 
 #define NODE(TYPE) \
 struct Node_##TYPE \
@@ -12,183 +18,122 @@ TYPE d; \
 struct Node_##TYPE *n; \
 };
 
-struct lol {
-	int p ;
-};
-
-/*
-int fun(struct Node* l)
-{
-	if (l->d % 2 == 0)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
-*/
-struct Node
-{
-	int d; 
-	struct Node* n; 
-};
-
-/*
-
-int lengthForAnyTypes(struct Node_##TYPE* f)
-{
-	struct Node_##TYPE* p = f; 
-	
-	int i = 0;
-	while (p != 0)
-	{
-		++i; 
-		p = p->n; 
-	return i;
-}
-*/
-
-int ToSecondFild(struct Node* f)
-{
-	struct Node* p = f; 
-	
-	int i = 0;
-	while (p != 0)
-	{
-		++i;
-		p = p->n; 
-		if (i == 2)
-		{
-			return &p->d;
-		}
-	}
-	
+#define LEN(TYPE) \
+int len(struct Node_##TYPE* f) \
+{ \
+    struct Node_##TYPE* p = f; \
+    int i = 0; \
+    while (p != 0) \
+    { \
+        i++; \
+        p = p->n; \
+    } \
+    return i; \
 }
 
-int PointerTolastElement(struct Node* f)
+struct node* pointerToSecond(struct node* f)
 {
-	struct Node* p = f;
-	struct Node* ex_p = f;
-
-	int i = 0;
-	while (p != 0)
-	{
-		++i; 
-		ex_p = p;
-		p = p->n; 
-	}
-	return ex_p;
+    return f->n;
 }
 
-int PointerToNElenment(struct Node* f, int n)
+struct node* pointerToLastEL(struct node* f)
 {
-	struct Node* p = f;
-	struct Node* ex_p = f;
-
-	int i = 0;
-	while (p != 0)
-	{
-		++i;
-		p = p->n;
-		if (i == n)
-		{
-			return p;
-		}
-	}
-	return 0;
+    struct node* p = f, *p1;
+    
+    while (p != 0)
+    {
+        p1 = p;
+        p = p->n;
+    }
+    return p1;
 }
 
-/*int PointerToNElenmentForAllTypes(struct Node_##TYPE* f, int n)\
-{\
-	struct Node_##TYPE* p = f;\
-	struct Node_##TYPE* ex_p = f;\
-	int i = 0;\
-	while (p != 0)\
-	{\
-		++i;\
-		p = p->n;\
-		if (i == n)\
-		{\
-			return p;\
-		}\
-	}\
-	return 0;\
-}\*/
-
-void printAllElenets(struct Node* f)
+struct node* pointerToNEl(struct node* f, int n)
 {
-	struct Node* p = f; 
-	
-	int i = 0;
-	while (p != 0)
-	{
-		printf("%d", p->d);
-		++i; 
-		p = p->n; 
-	}
-	
+    struct node* p = f;
+    int i = 0;
+    while (p != 0)
+    {
+        i++;
+        p = p->n;
+        if (i == n)
+        {
+            return p;
+        }
+    }
 }
 
-int howMachTruElements(struct Node* f, int (*fun)(struct Node*))
-{
-	struct Node* p = f;
-	int a = 0;
-	int i = 0;
-	while (p != 0)
-	{
-		if ((*fun)(p))
-		{
-			a++;
-		}
-		++i;
-		p = p->n;
-	}
-	return a;
+#define POINTERTONEL(TYPE) \
+struct node* pointerToNElForAll(struct Node_##TYPE* f, int n) \
+{ \
+    struct Node_##TYPE* p = f; \
+    int i = 0; \
+    while (p != 0) \
+    { \
+        i++; \
+        p = p->n; \
+        if (i == n) \
+        { \
+            return p; \
+        } \
+    } \
 }
 
-
-int returnFirstElementWithData(struct Node* f, int data)
+void nodePrint(struct node* f)
 {
-	struct Node* p = f;
-	int a = 0;
-	int i = 0;
-	while (p != 0)
-	{
-		if (p->d == data)
-		{
-			return p;
-		}
-		++i;
-		p = p->n;
-	}
-	return 0;
+    struct node* p = f;
+    int i = 0;
+    printf("%d", p->d);
+    while (p != 0)
+    {
+        p = p->n;
+        printf("%d", p->d);
+    }
 }
 
-int returnLastElementWithData(struct Node* f, int data)
+int count(struct node* f,_Bool (*funBool)(struct node*))
 {
-	struct Node* p = f;
-	struct Node* sub_p = 0;
-	int i = 0;
+    struct node* p = f;
+    int i = 0;
+    while (p != 0)
+    {
+        if ((*funBool)(p))
+        {
+            i++;
+        }
+        p = p->n;
+    }
 
-	while (p != 0)
-	{
-		if (p->d == data)
-		{
-			sub_p = p;
-		}
-		++i;
-		p = p->n;
-	}
-	return sub_p;
+    return i;
 }
 
+int firstWhitData(struct node* f, int dat)
+{
+    struct node* p = f;
+    while (p != 0)
+    {
+        if (p->d == dat)
+        {
+            return p;
+        }
+        p = p->n;
+    }
+    return 0;
+}
 
-
+int LastWhitData(struct node* f, int par)
+{
+    struct node* p = f, *output = 0;
+    while (p != 0)
+    {
+        if (p->d == par)
+        {
+            output = p;
+        }
+        p = p->n;
+    }
+    return output;
+}
 
 int main()
-{
-	
-
-}
+{}
