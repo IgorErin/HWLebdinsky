@@ -1,4 +1,4 @@
-void nodePrint(struct node* f)
+void nodePrint(struct node* f) //
 {
     struct node* p = f;
     int i = 0;
