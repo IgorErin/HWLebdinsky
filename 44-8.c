@@ -1,4 +1,4 @@
-#define ADDFIRST(TYPE) \
+#define ADDFIRST(TYPE) \ //
 void add_first_##TYPE(struct Node_##TYPE** f, TYPE d) \
 { \
     struct Node_##TYPE* p; \
