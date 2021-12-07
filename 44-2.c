@@ -1,4 +1,4 @@
-struct node* pointerToSecond(struct node* f)
+struct node* pointerToSecond(struct node* f)//
 {
     return f->n;
 }
