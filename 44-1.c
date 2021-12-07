@@ -1,4 +1,4 @@
-#define LEN(TYPE) \
+#define LEN(TYPE) \ //
 int LEN_##TYPE(struct Node_##TYPE *f) \
 { \
     struct Node_##TYPE* p = f; \
