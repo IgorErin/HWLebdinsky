@@ -1,4 +1,4 @@
-int count(struct node* f,_Bool (*funBool)(struct node*))
+int count(struct node* f,_Bool (*funBool)(struct node*)) //
 {
     struct node* p = f;
     int i = 0;
