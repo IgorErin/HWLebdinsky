@@ -1,4 +1,4 @@
-struct node* pointerToNEl(struct node* f, int n)
+struct node* pointerToNEl(struct node* f, int n) //
 {
     struct node* p = f;
     int i = 0;
