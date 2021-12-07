@@ -1,4 +1,4 @@
-int firstWhitData(struct node* f, int dat)
+int firstWhitData(struct node* f, int dat) //
 {
     struct node* p = f;
     while (p != 0)
