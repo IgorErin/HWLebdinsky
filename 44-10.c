@@ -1,4 +1,4 @@
-struct node* addInWithPointer(struct node* f, int n, int dat)
+struct node* addInWithPointer(struct node* f, int n, int dat) //
 {
     struct node* p = f;
     int i = 0;
