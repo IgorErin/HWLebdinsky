@@ -1,4 +1,4 @@
-struct node* pointerToLastEL(struct node* f)
+struct node* pointerToLastEL(struct node* f) //
 {
     struct node* p = f;
     
