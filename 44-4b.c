@@ -1,4 +1,4 @@
-#define POINTERTONEL(TYPE) \
+#define POINTERTONEL(TYPE) \ //
 struct Node_##TYPE* PointerToN_##TYPE(struct Node_##TYPE *f, TYPE n) \
 { \
     struct Node_##TYPE* p = f; \
