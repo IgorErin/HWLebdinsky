@@ -1,4 +1,4 @@
-#define ADDINWITHPOINTER(TYPE) \
+#define ADDINWITHPOINTER(TYPE) \ //
 struct node* addInWithPointer(struct Node_##TYPE* f, int n, TYPE dat) \
 { \
     struct Node_##TYPE* p = f; \
