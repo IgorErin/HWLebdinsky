@@ -1,4 +1,4 @@
-int LastWhitData(struct node* f, int par)
+int LastWhitData(struct node* f, int par) //
 {
     struct node* p = f, *output = 0;
     while (p != 0)
