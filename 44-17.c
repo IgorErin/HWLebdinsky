@@ -50,35 +50,52 @@ struct node* createRec()
 void delNElement(struct node** pp, int n)
 {
 
-    struct node* p = *pp;
-    if (p == 0)
+    struct node** p = pp;
+    if (*p == 0)
     {
         return;
     }
-    if (n == 0)
-    {
-        *pp = p->n;
-        free(p);
-    }
-    if (n > 0)
+    else
     {
         int i = 0;
-        while (p->n != 0)
+        while ((*p)->n != 0)
         {
-            
-            if (i == n - 1)
+            if (i == n)
             {
-                struct node* p_del = p->n;
-                p->n = (p->n)->n;
+                struct node* p_del = *p;
+                (*p) = (*p)->n;
                 free(p_del);
                 break;
             }
-            p = p->n;
             i++;
+            p = &((**p).n);
         }
-        return;
     }
-
+}
+#define DELNELEMEN(TYPE) \
+void delNElement(struct  Node_##TYPE** pp, int n) \
+{ \
+    struct  Node_##TYPE** p = pp; \
+    if (*p == 0) \
+    { \
+        return; \
+    } \
+    else \
+    { \
+        int i = 0; \
+        while ((*p)->n != 0) \
+        { \
+            if (i == n) \
+            { \
+                struct  Node_##TYPE* p_del = *p; \
+                (*p) = (*p)->n; \
+                free(p_del); \
+                break; \
+            } \
+            i++; \
+            p = &((**p).n); \
+        } \
+    } \
 }
 
 
@@ -88,7 +105,7 @@ int main()
     printNode(p);
     struct node lol;
     
-    delNElement(&p, 0);
+    delNElement(&p, 2);
     printNode(p);
     
 
