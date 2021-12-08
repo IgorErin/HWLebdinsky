@@ -3,10 +3,6 @@
 #include<math.h>
 #include <time.h>
 
-
-
-
-
 struct node
 {
     int d;
@@ -27,73 +23,65 @@ void printNode(struct node* f)
 }
 
 
-struct node* add(struct node* p_now, int dat)
-{
-    struct node* p_new = (struct node*)malloc(sizeof(struct node));
-
-    p_new->n = 0;
-    p_new->d = dat;
-    p_now->n = p_new;
-
-    return p_new;
-}
-
-
 struct node* create(struct node* p1, struct node* p2)
 {
-    
-    struct node* p = (struct node*)malloc(sizeof(struct node));
-    struct node* p_now = p;
-
-
-    if (p1->d < p2->d)
+    struct node* p;
+    struct node* p_first;
+    if (p1 == 0 && p2 == 0)
     {
-        p->d = p1->d;
-        p1 = p1->n;
+        return 0;
+    }
+    else if (p1 == 0 && p2 != 0)
+    {
+        return p2;
+    }
+    else if (p2 == 0 && p1 != 0)
+    {
+        return p1;
+    }
+    if (p1->d > p2->d)
+    {
+        p = p2;
+        p2 = p2->n;
+        p_first = p;
     }
     else
     {
-        p->d = p2->d;
+        p = p1;
+        p1 = p1->n;
+        p_first = p;
+    }
+
+    while (p1 != 0 && p2 != 0)
+    {
+        if (p1->d > p2->d)
+        {
+            p->n = p2;
+            p = p2;
+            p2 = p2->n;
+        }
+        else
+        {
+            p->n = p1;
+            p = p1;
+            p1 = p1->n;
+        }
+    }
+
+    while (p1 != 0)
+    {
+        p->n = p1;
+        p = p1;
+        p1 = p1->n;
+    }
+    while (p2 != 0)
+    {
+        p->n = p2;
+        p = p2;
         p2 = p2->n;
     }
-
-    
-    p->n = 0;
-
-    while (p1 != 0 || p2 != 0)
-    {
-        if (p1 == 0 && p2 == 0)
-        {
-            break;
-        }
-        else if (p1 == 0 && p2 != 0)
-        {
-            
-            p_now = add(p_now, p2->d);
-            p2 = p2->n;
-        }
-        else if (p1 != 0 && p2 == 0)
-        {
-            
-            p_now = add(p_now, p1->d);
-            p1 = p1->n;
-        }
-        else if (p1->d < p2->d)
-        {
-            
-            p_now = add(p_now, p1->d);
-            p1 = p1->n;
-        }
-        else if (p1->d >= p2->d)
-        {
-            
-            p_now = add(p_now, p2->d);
-            p2 = p2->n;
-        }
-        
-    }
-    
-    return p;
+   
+    return p_first;;
 }
 
 struct node* createRec()
