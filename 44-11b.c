@@ -1,4 +1,4 @@
-struct node* add(struct node* p_now, int dat)
+struct node* add(struct node* p_now, int dat) // accepted
 {
     struct node* p_new = (struct node*)malloc(sizeof(struct node));
 
