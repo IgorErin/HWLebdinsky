@@ -1,4 +1,4 @@
-void add(struct node * first_p, int dat)
+void add(struct node * first_p, int dat) // accepted
 {
     struct node* p = (struct node*)malloc(sizeof(struct node));
     p->d = dat;
