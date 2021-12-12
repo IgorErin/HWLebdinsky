@@ -46,29 +46,22 @@ struct node* createRec()
 }
 
 
-struct node *copyRec(struct node* p_first)
+struct node* copyRec(struct node* p_first)
 {
-    struct node* p = (struct node*)malloc(sizeof(struct node));
-    if (p_first != 0)
+    if (p_first == 0)
     {
-        p->d = p_first->d;
+        return 0;
     }
     else
     {
-        printf("empty list");
+        struct node* p_new = (struct node*)malloc(sizeof(struct node));
+        p_new->d = p_first->d;
+        p_new->n = copyRec(p_first->n);
+        return p_new;
     }
-
-    if (p_first->n != 0)
-    {
-        p->n = copyRec(p_first->n);
-    }
-    else
-    {
-        p->n = 0;
-    }
-    return p;
 
 }
+
 
 int main()
 {
