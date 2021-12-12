@@ -47,7 +47,7 @@ struct node* createRec()
 }
 
 
-struct node* reversForList(struct node* p_first, struct node *p_second)
+struct node* reversForList(struct node* p_first, struct node* p_second)
 {
     if (p_second != 0)
     {
@@ -61,6 +61,12 @@ struct node* reversForList(struct node* p_first, struct node *p_second)
         return p_first;
     }
 }
+
+struct node* revers(struct node* p)
+{
+    return reversForList(0, p);
+}
+
 
 
 int main()
