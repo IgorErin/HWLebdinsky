@@ -28,22 +28,26 @@ void printNode(struct node* f)
 
 struct node* createRec()
 {
-    struct node* p = (struct node*)malloc(sizeof(struct node));
+    struct node* p = 0;
     int dat;
 
     printf("0 if this is last");
     scanf("%d", &dat);
-    p->d = dat;
-
     if (dat != 0)
     {
+        p = (struct node*)malloc(sizeof(struct node));
+        p->d = dat;
+
+        
         p->n = createRec();
+        
+        
+        
     }
-    else {
-        p->n = 0;
-    }
+
     return p;
 }
+
 
 
 int main()
