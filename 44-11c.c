@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS //accepted
+#define _CRT_SECURE_NO_WARNINGS //accepte
 #include<stdio.h>
 #include<math.h>
 #include <time.h>
