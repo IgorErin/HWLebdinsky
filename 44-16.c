@@ -47,29 +47,21 @@ struct node* createRec()
 }
 
 
-#define DELLAST(TYPE) \
+#define DELFORALL(TYPE) \
 void delLAstForAll(struct Node_##TYPE** pp) \
 { \
     if (*pp == 0) \
     { \
-        printf("erorr"); \
-        return; \
+        return 0; \
     } \
-    if ((*pp)->n == 0) \
+    while ((*pp)->n != 0) \
     { \
-        free(*pp); \
-        *pp = 0; \
-        return; \
+        pp = &((**pp).n); \
     } \
-    struct Node_##TYPE* p = *pp; \
-    while ((p->n)->n != 0) \
-    { \
-        p = p->n; \
-    } \
-    free(p->n); \
-    p->n = 0; \
-    return; \
+    free(*pp); \
+    *pp = 0; \
 }
+
 
 
 int main()
