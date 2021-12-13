@@ -37,6 +37,27 @@ void print(struct bnode* p, int n)
 
 struct bnode* fun(struct bnode* p)
 {
+    if (p == 0)
+    {
+        return 0;
+    }
+    if (p->l != 0)
+    {
+        return fun(p->l);
+    }
+    else if (p->r != 0)
+    {
+        return fun(p->r);
+    }
+    else
+    {
+        return p;
+    }
+
+}
+
+struct bnode* second_pointer(struct bnode* p)
+{
     struct bnode* p_save = 0;
     if (p == 0)
     {
@@ -46,7 +67,7 @@ struct bnode* fun(struct bnode* p)
     {
         p_save = p;
     }
-    while (p->l != 0 )
+    while (p->l != 0)
     {
         if (p->r != 0)
         {
@@ -54,18 +75,11 @@ struct bnode* fun(struct bnode* p)
         }
         p = p->l;
     }
-    if (p_save == 0)
+    if (p_save->r != 0)
     {
-        return 0;
+        p_save = p_save->r;
     }
-    
-    p = p_save->r;
-
-    while (p->l != 0)
-    {
-       p = p->l;
-    }
-    return p;
+    return fun(p_save);
 }
 
 
