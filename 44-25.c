@@ -16,7 +16,7 @@ void printNode(struct node* f)
     while (p != 0)
     {
         printf("%d \n", p->d);
-        p = p->nl;
+        p = p->nr;
     }
     printf("-------\n");
 }
@@ -36,6 +36,7 @@ struct node* add(int data, struct node* ex_p)
 struct node* create()
 {
     struct node* p_new = 0;
+    struct node** p_save = p_new;
     int data;
 
     printf("0 if last");
@@ -48,16 +49,17 @@ struct node* create()
         p_first->nl = 0;
         p_first->nr = 0;
         p_new = p_first;
+        p_save = p_new;
 
         scanf("%d", &data);
     }
     while (data != 0)
     {
-        
+
         p_new = add(data, p_new);
         scanf("%d", &data);
     }
-    return p_new;
+    return p_save;
 }
 
 struct node* copyDList(struct node* f)
@@ -66,16 +68,16 @@ struct node* copyDList(struct node* f)
     {
         return 0;
     }
-    
+
     struct node* p = f;
-   
+    struct node* p_save;
+
     struct node* p_copy = (struct node*)malloc(sizeof(struct node));
     p_copy->nl = 0;
-    
+    p_save = p_copy;
+
     while (p->nr != 0)
     {
-        
-        
         if (p->nr == 0)
         {
             break;
@@ -87,17 +89,15 @@ struct node* copyDList(struct node* f)
         p_copy = p_new;
         p = p->nr;
     }
+
     p_copy->d = p->d;
     p_copy->nr = 0;
-    return p_copy;
+    return p_save;
 }
 
 
 int main()
 {
-
-
-   
     struct node* p2;
     p2 = create();
     printNode(p2);
