@@ -50,14 +50,20 @@ int pop(struct stack* p_to_stack)
     }
 }
 
+
+void init(struct stack* p_to_stack)
+{
+    p_to_stack->count = 0;
+}
+
 int main()
 {
-    
+
     struct stack x;
-    (&x)->count = 0;
+    init(&x);
 
     printf("----");
-    
+
     printf("------");
     printf("%d", pop(&x));
     //printf("%d", x.count);
