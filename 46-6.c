@@ -41,13 +41,20 @@ struct bnode* fun(struct bnode* p)
     {
         return 0;
     }
-    while (p->l != 0)
+    if (p->l != 0)
     {
-        p = p->l;
+        return fun(p->l);
     }
-    return p;
-}
+    else if (p->r != 0)
+    {
+        return fun(p->r);
+    }
+    else
+    {
+        return p;
+    }
 
+}
 
 int main()
 {
