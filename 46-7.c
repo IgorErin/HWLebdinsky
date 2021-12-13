@@ -38,6 +38,14 @@ void print(struct bnode* p, int n)
 struct bnode* fun(struct bnode* p)
 {
     struct bnode* p_save = 0;
+    if (p == 0)
+    {
+        return 0;
+    }
+    if (p->r != 0)
+    {
+        p_save = p;
+    }
     while (p->l != 0 )
     {
         if (p->r != 0)
@@ -58,7 +66,6 @@ struct bnode* fun(struct bnode* p)
        p = p->l;
     }
     return p;
-    
 }
 
 
