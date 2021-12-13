@@ -65,13 +65,19 @@ struct node* revers(struct node* p_first, struct node* p_copy)
 
 struct node* copyRevers(struct node* p_first)
 {
-    
     if (p_first != 0)
     {
         struct node* p_new = (struct node*)malloc(sizeof(struct node));
         p_new->d = p_first->d;
         p_new->n = 0;
-        return revers(p_first->n, p_new);
+        if (p_first->n != 0)
+        {
+            return revers(p_first->n, p_new);
+        }
+        else
+        {
+            return p_new;
+        }
     }
     else
     {
