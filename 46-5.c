@@ -41,18 +41,22 @@ struct bnode* fun(struct bnode* p)
     {
         return 0;
     }
-    if (p->l != 0)
-    {
-        return fun(p->l);
-    }
-    else if (p->r != 0)
-    {
-        return fun(p->r);
-    }
-    else
+    if (p->l == 0 )
     {
         return p;
     }
+    if (p->l != 0)
+    {
+        if (p->l->l == 0 && p->l->r == 0)
+        {
+            return p;
+        }
+        else
+        {
+            return fun(p->l);
+        }
+    }
+    
 
 }
 
