@@ -34,30 +34,34 @@ void print(struct bnode* p, int n)
     print(p->l, n + 3);
 }
 
-
-struct bnode* fun(struct bnode* p, int n)
+int fun(struct bnode* p)
 {
-    if (n == 2)
-    {
-        return p;
-    }
     if (p == 0)
     {
         return 0;
     }
-    else if (p->r != 0)
+    if (p->r != 0)
     {
-        return (fun(p->r, n + 1));
+        if (p->r->r != 0)
+        {
+            return p->r->r;
+        }
+        if (p->r->l != 0)
+        {
+            return p->r->l;
+        }
     }
-    else if ( p->l != 0)
+    if (p->l != 0)
     {
-        return fun(p->l, n + 1);
+        if (p->l->r != 0)
+        {
+            return p->r->r;
+        }
+        if (p->l->l != 0)
+        {
+            return p->r->l;
+        }
     }
-    else
-    {
-        return 0;
-    }
-    
 }
 
 
