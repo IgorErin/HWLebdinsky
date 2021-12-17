@@ -38,36 +38,28 @@ void print(struct anode* p, int offset)
     print(p->next, offset);
 }
 
-int fun(struct anode* p, int n)
+int fun3(struct anode* p)
 {
     if (p == 0)
     {
         return 0;
     }
-    if (n == 2)
+    p = p->down;
+    int count = 0;
+    struct anode* p_count;
+    while (p != 0)
     {
-        int count = 1;
-        while (p->next != 0)
+        p_count = p->down;
+        while (p_count != 0)
         {
-            count += 1;
-            p = p->next;
+            count++;
+            p_count = p_count->next;
         }
-        return count;
+
+        p = p->next;
     }
-    else
-    {
-        int sum = 0;
-        while (p != 0)
-        {
-            if (p->down != 0)
-            {
-                sum += fun(p->down, n + 1);
-            }
-            p = p->next;
-        }
-        return sum;
-    }
-    
+
+    return count;
 }
 
 int main()
