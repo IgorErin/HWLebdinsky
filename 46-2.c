@@ -35,28 +35,37 @@ void print(struct bnode* p, int n)
 }
 
 
-int fun(struct bnode* p, int n)
+int fun2(struct bnode* p)
 {
-    if (n == 2)
-    {
-        return 1;
-    }
     int sum = 0;
     if (p == 0)
     {
         return 0;
     }
-    if (p->l)
+    if (p->r != 0)
     {
-        sum += fun(p->l, n + 1);
+        if (p->r->r != 0)
+        {
+            sum++;
+        }
+        if (p->r->l != 0)
+        {
+            sum++;
+        }
     }
-    if (p->r)
+    if (p->l != 0)
     {
-        sum += fun(p->r, n + 1);
+        if (p->l->r != 0)
+        {
+            sum++;
+        }
+        if (p->l->l != 0)
+        {
+            sum++;
+        }
     }
     return sum;
 }
-
 
 int main()
 {
